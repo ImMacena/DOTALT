@@ -1,6 +1,7 @@
 import { BsPersonCircle } from 'react-icons/bs';
 
 import { ProfileDesc, ProfileIcon, StyledProfileCard } from "./styles";
+import { ActionBtn } from '../ActionBtn';
 
 export const ProfileCard = ({ typeOfUser, username }) => {
   return (
@@ -11,8 +12,9 @@ export const ProfileCard = ({ typeOfUser, username }) => {
 
       <ProfileDesc>
         <h2>Marina Silva Souza</h2>
-
-        <button>Visualizar Perfil</button>
+        <ActionBtn color={"secondary"} >
+          Visualizar Perfil
+        </ActionBtn>
       </ProfileDesc>
     </StyledProfileCard>
   );

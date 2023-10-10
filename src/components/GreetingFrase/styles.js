@@ -5,5 +5,10 @@ export const StyledGreeting = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
-  margin: 1.5rem 0;
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+
+  & span {
+    font-weight: 500;
+  }
 `;

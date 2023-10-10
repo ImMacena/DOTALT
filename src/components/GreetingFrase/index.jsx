@@ -60,10 +60,10 @@ export const GreetingFrase = ({ typeOfUser, institution }) => {
     <Container>
       <StyledGreeting>
         <h2>
-          {greeting} {typeOfUser}! Hoje é {dayOfWeek}.
+          {greeting} {typeOfUser}! <span>Hoje é {dayOfWeek}.</span>
         </h2>
         <h2>
-          Instituição: <span>{institution}</span>
+          Instituição: {institution}
         </h2>
       </StyledGreeting>
     </Container>
