@@ -22,7 +22,7 @@ export const PendentesCard = ({
 
       <PendentesTitle>
         <h2>{atividade}</h2>
-        <ActionBtn onclick={action} color={"secondary"}>
+        <ActionBtn onclick={action} color={"secondary"} fill={"fill"}>
           Visualizar
         </ActionBtn>
       </PendentesTitle>

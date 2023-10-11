@@ -3,7 +3,7 @@ export const dark = {
 
   colors: {
     primary: "#00C261",
-    secondary: "#33D0FC",
+    secondary: "#00B4CC",
 
     danger: "#FC3565",
 
