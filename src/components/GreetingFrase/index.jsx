@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 
-import { Container } from "../Container";
 import { StyledGreeting } from "./styles";
 
 export const GreetingFrase = ({ typeOfUser, institution }) => {
@@ -57,15 +56,11 @@ export const GreetingFrase = ({ typeOfUser, institution }) => {
   }, [horaAtual]);
 
   return (
-    <Container>
-      <StyledGreeting>
-        <h2>
-          {greeting} {typeOfUser}! <span>Hoje é {dayOfWeek}.</span>
-        </h2>
-        <h2>
-          Instituição: {institution}
-        </h2>
-      </StyledGreeting>
-    </Container>
+    <StyledGreeting>
+      <h2>
+        {greeting} {typeOfUser}! <span>Hoje é {dayOfWeek}.</span>
+      </h2>
+      <h2>Instituição: {institution}</h2>
+    </StyledGreeting>
   );
 };

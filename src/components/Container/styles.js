@@ -6,4 +6,5 @@ export const StyledContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding: 0 1rem;
+  padding-left: calc(1rem + 65px);
 `;

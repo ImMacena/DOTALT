@@ -3,11 +3,16 @@ import styled from "styled-components";
 import Switch from "react-switch";
 
 export const Nav = styled.nav`
-  max-width: 100vw;
-  padding: 15px 0;
+  display: flex;
+  align-items: center;
 
+  position: fixed;
+  top: 0;
+
+  z-index: 999;
+  width: 100vw;
+  height: 85px;
   text-transform: uppercase;
-
   background-color: ${({ theme }) => theme.colors.background};
   border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
 
@@ -15,6 +20,7 @@ export const Nav = styled.nav`
     display: flex;
     align-items: center;
     flex-direction: row;
+    padding-top: 0px !important;
   }
 `;
 

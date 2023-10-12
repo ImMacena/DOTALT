@@ -6,6 +6,7 @@ import { ActionCard, StyledActionCards } from "./styles";
 export const ActionCards = ({ typeOfUser }) => {
   return (
     <StyledActionCards>
+      {/* ActionCards do painel de ALUNOS */}
       {typeOfUser === "aluno" && (
         <>
           <ActionCard onClick={() => console.log("click")}>

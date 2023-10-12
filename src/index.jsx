@@ -8,6 +8,7 @@ import App from "./App";
 import { Home, Login, Vantagens, Empresas, Contato } from "./pages";
 import { Cadastro } from "./pages/Cadastro";
 import { Aluno } from "./pages/Aluno";
+import { MenuBar } from "./components/MenuBar";
 
 const router = createBrowserRouter([
   {
@@ -40,13 +41,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/Aluno",
-        element: <Aluno />,
+        element: (
+          <>
+            <MenuBar />
+            <Aluno />
+          </>
+        ),
       },
     ],
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />

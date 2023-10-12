@@ -16,4 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Exo 2', sans-serif;
   }
 
+  .App {
+    margin-top: 85px;
+  }
 `;
