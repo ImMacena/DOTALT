@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.div`
   text-transform: uppercase;
+  width: fit-content;
   min-width: 100px;
   padding: 10px;
+  margin: 1.5rem auto;
+  text-align: center;
 
   font-size: 1rem;
   font-weight: 600;

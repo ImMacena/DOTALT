@@ -2,6 +2,7 @@ import { Container } from "../../components/Container";
 import { GreetingFrase } from "../../components/GreetingFrase";
 import { ProfileCard } from "../../components/ProfileCard";
 import { ActionCards } from "../../components/ActionCards";
+import { PendentesCard } from "../../components/PendentesCard";
 
 import {
   AlunoContainer,
@@ -9,7 +10,6 @@ import {
   Pendentes,
   PendentesList,
 } from "./styles";
-import { PendentesCard } from "../../components/PendentesCard";
 
 export const Aluno = () => {
 

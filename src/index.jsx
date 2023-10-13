@@ -5,15 +5,26 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 
-import { Home, Login, Vantagens, Empresas, Contato } from "./pages";
-import { Cadastro } from "./pages/Cadastro";
-import { Aluno } from "./pages/Aluno";
+import {
+  Home,
+  Login,
+  Vantagens,
+  Empresas,
+  Contato,
+  Cadastro,
+  Aluno,
+} from "./pages";
+
 import { MenuBar } from "./components/MenuBar";
+
+import { AuthProvider } from "./contexts/Auth/AuthProvider";
+import { RequireAuth } from "./contexts/Auth/RequireAuth";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+
     children: [
       {
         path: "/",
@@ -42,10 +53,12 @@ const router = createBrowserRouter([
       {
         path: "/Aluno",
         element: (
-          <>
-            <MenuBar />
-            <Aluno />
-          </>
+          <RequireAuth>
+            <>
+              <MenuBar />
+              <Aluno />
+            </>
+          </RequireAuth>
         ),
       },
     ],
@@ -56,6 +69,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

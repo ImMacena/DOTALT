@@ -5,14 +5,14 @@ import { StyledResourcesCards, StyledResourcesCard } from "./style";
 export const ResourcesCards = () => {
   return (
     <StyledResourcesCards>
-      <StyledResourcesCard resourceCardImg="aluno">
+      <StyledResourcesCard>
         <div>
           <h2>Alunos</h2>
           <BsArrowRight size={45} />
         </div>
       </StyledResourcesCard>
 
-      <StyledResourcesCard resourceCardImg="prof">
+      <StyledResourcesCard>
         <div>
           <h2>Professores</h2>
           <BsArrowRight size={45} />

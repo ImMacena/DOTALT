@@ -17,8 +17,8 @@ export const StyledFormInput = styled.div`
     content: "*";
     color: red;
 
-    display: ${({ isRequired }) => {
-      if (isRequired) {
+    display: ${({ required }) => {
+      if (required) {
         return "inline-block";
       } else {
         return "none";
