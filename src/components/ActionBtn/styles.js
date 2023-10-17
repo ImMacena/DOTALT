@@ -5,7 +5,7 @@ export const StyledButton = styled.div`
   width: fit-content;
   min-width: 100px;
   padding: 10px;
-  margin: 1.5rem auto;
+  margin: 1.5rem 0;
   text-align: center;
 
   font-size: 1rem;

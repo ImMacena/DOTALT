@@ -5,7 +5,7 @@ export const StyledMenuBar = styled.div`
   left: calc(-250px + 65px);
   bottom: 0;
 
-  height: calc(100vh - 85px);
+  height: calc(100vh - 75px);
   width: 250px;
   margin-right: 250px;
   z-index: 999;

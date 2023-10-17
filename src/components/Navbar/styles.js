@@ -11,15 +11,16 @@ export const Nav = styled.nav`
 
   z-index: 999;
   width: 100vw;
-  height: 85px;
+  height: 75px;
   text-transform: uppercase;
   background-color: ${({ theme }) => theme.colors.background};
   border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
-
+  
   & > div {
     display: flex;
     align-items: center;
     flex-direction: row;
+
     padding-top: 0px !important;
   }
 `;

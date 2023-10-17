@@ -17,6 +17,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .App {
-    margin-top: 85px;
+    margin-top: 75px;
   }
 `;

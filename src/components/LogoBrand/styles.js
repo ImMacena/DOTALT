@@ -11,7 +11,7 @@ export const Brand = styled.div`
   }
 
   & h1 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: bold;
   }
 `;

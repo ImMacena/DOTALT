@@ -17,6 +17,7 @@ import {
   LoginImage,
   LoginActions,
   LoginGoogle,
+  LoginButtons,
 } from "./styles";
 
 import ImgLoginLight from "../../assets/LoginImgLight.png";
@@ -94,18 +95,20 @@ export const Login = () => {
               <a href="/">Esqueci minha senha</a>
             </LoginActions>
 
-            <ActionBtn color="primary" type="submit" action={handleSignin}>
-              Entrar
-            </ActionBtn>
+            <LoginButtons>
+              <ActionBtn color="primary" type="submit" action={handleSignin}>
+                Entrar
+              </ActionBtn>
 
-            <p>Ou</p>
+              <p>Ou</p>
 
-            <LoginGoogle>
-              <div>
-                <FcGoogle size={20} />
-                <p>Fazer login com o Google</p>
-              </div>
-            </LoginGoogle>
+              <LoginGoogle>
+                <div>
+                  <FcGoogle size={20} />
+                  <p>Fazer login com o Google</p>
+                </div>
+              </LoginGoogle>
+            </LoginButtons>
           </LoginForm>
 
           <LoginImage>

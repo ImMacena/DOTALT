@@ -26,7 +26,7 @@ export const LoginForm = styled.form`
   }
 
   & button {
-    margin: 1rem 0;
+    margin: 1rem auto;
   }
 `;
 
@@ -72,6 +72,12 @@ export const LoginActions = styled.div`
     color: ${({ theme }) => theme.colors.secondary};
     float: right;
   }
+`;
+
+export const LoginButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const LoginGoogle = styled.button`

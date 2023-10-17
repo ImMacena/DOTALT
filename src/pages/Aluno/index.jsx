@@ -40,7 +40,7 @@ export const Aluno = () => {
 
   return (
     <AlunoContainer>
-      <Container>
+      <Container pleft={"true"}>
         <GreetingFrase typeOfUser={userData.userType} institution={userData.instituicao} />
 
         <AlunoQuickAccess>
