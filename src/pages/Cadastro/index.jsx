@@ -13,6 +13,7 @@ import {
   CadastroForm,
   CadastroGoogle,
   CadastroImage,
+  LoginButtons,
 } from "./styles";
 import { FormControl } from "../../components/FormControl";
 
@@ -57,6 +58,13 @@ export const Cadastro = () => {
               required={true}
             />
 
+            <FormControl
+              id="cadastroConfirmPassword"
+              type="password"
+              label="Confirmar Senha"
+              required={true}
+            />
+
             <CadastroActions>
               <div>
                 <input
@@ -72,18 +80,20 @@ export const Cadastro = () => {
               </div>
             </CadastroActions>
 
-            <ActionBtn color={"primary"} type="submit">
-              Cadastrar
-            </ActionBtn>
+            <LoginButtons>
+              <ActionBtn color={"primary"} type="submit">
+                Cadastrar
+              </ActionBtn>
 
-            <p>Ou</p>
+              <p>Ou</p>
 
-            <CadastroGoogle>
-              <div>
-                <FcGoogle size={20} />
-                <p>Fazer cadastro com o Google</p>
-              </div>
-            </CadastroGoogle>
+              <CadastroGoogle>
+                <div>
+                  <FcGoogle size={20} />
+                  <p>Fazer cadastro com o Google</p>
+                </div>
+              </CadastroGoogle>
+            </LoginButtons>
           </CadastroForm>
 
           <CadastroImage>

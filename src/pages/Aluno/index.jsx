@@ -1,3 +1,5 @@
+import ApexCharts from "react-apexcharts";
+
 import { Container } from "../../components/Container";
 import { GreetingFrase } from "../../components/GreetingFrase";
 import { ProfileCard } from "../../components/ProfileCard";
@@ -7,12 +9,18 @@ import { PendentesCard } from "../../components/PendentesCard";
 import {
   AlunoContainer,
   AlunoQuickAccess,
+  AtivEntregues,
+  AtivNaoEntregues,
+  AtivPendentes,
+  Desempenho,
+  DesempenhoArmazenamento,
+  DesempenhoResumo,
   Pendentes,
   PendentesList,
+  Title,
 } from "./styles";
 
 export const Aluno = () => {
-
   // Informação que virá da API
   const AtividadesPendentes = [
     {
@@ -38,10 +46,26 @@ export const Aluno = () => {
     turma: "3 DSI",
   };
 
+  const opt = {
+    options: {
+      chart: {
+        width: 380,
+        type: "pie",
+      },
+    },
+    labels: ["Disponível", "Usado"],
+    colors: ["#25FF92", "#FC3565"],
+  };
+
+  const series = [750, 250];
+
   return (
     <AlunoContainer>
-      <Container pleft={"true"}>
-        <GreetingFrase typeOfUser={userData.userType} institution={userData.instituicao} />
+      <Container pleft={"false"}>
+        <GreetingFrase
+          typeOfUser={userData.userType}
+          institution={userData.instituicao}
+        />
 
         <AlunoQuickAccess>
           <ProfileCard typeOfUser={userData.userType} />
@@ -50,7 +74,7 @@ export const Aluno = () => {
         </AlunoQuickAccess>
 
         <Pendentes>
-          <h2>ATIVIDADES PENDENTES</h2>
+          <Title>ATIVIDADES PENDENTES</Title>
 
           <PendentesList>
             {AtividadesPendentes.map((data, key) => {
@@ -67,6 +91,42 @@ export const Aluno = () => {
             })}
           </PendentesList>
         </Pendentes>
+
+        <Desempenho>
+          <DesempenhoResumo>
+            <Title>SEU DESEMPENHO</Title>
+
+            <div>
+              <AtivEntregues>
+                <h2>4</h2>
+                <p>ENTREGUES</p>
+              </AtivEntregues>
+
+              <AtivPendentes>
+                <h2>6</h2>
+                <p>PENDENTES</p>
+              </AtivPendentes>
+
+              <AtivNaoEntregues>
+                <h2>2</h2>
+                <p>NÃO ENTREGUES</p>
+              </AtivNaoEntregues>
+            </div>
+          </DesempenhoResumo>
+
+          <DesempenhoArmazenamento>
+            <Title>Armazenamento Mochila</Title>
+
+            <div>
+              <ApexCharts
+                options={opt}
+                series={series}
+                type="pie"
+                width={350}
+              />
+            </div>
+          </DesempenhoArmazenamento>
+        </Desempenho>
       </Container>
     </AlunoContainer>
   );

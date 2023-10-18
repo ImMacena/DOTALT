@@ -9,7 +9,7 @@ export const LoginContent = styled.div`
   gap: 2.5rem;
 
   width: 100%;
-  min-height: 90vh;
+  min-height: calc(100vh - 75px);
 `;
 
 export const LoginForm = styled.form`

@@ -8,7 +8,6 @@ import App from "./App";
 import {
   Home,
   Login,
-  Vantagens,
   Empresas,
   Contato,
   Cadastro,
@@ -37,10 +36,6 @@ const router = createBrowserRouter([
       {
         path: "/Cadastro",
         element: <Cadastro />,
-      },
-      {
-        path: "/Vantagens",
-        element: <Vantagens />,
       },
       {
         path: "/Empresas",

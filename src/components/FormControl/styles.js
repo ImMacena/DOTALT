@@ -9,8 +9,8 @@ export const StyledFormInput = styled.div`
 
   & label {
     font-weight: bold;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
   }
 
   & label::after {
@@ -27,7 +27,7 @@ export const StyledFormInput = styled.div`
   }
 
   & input {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     outline: none;

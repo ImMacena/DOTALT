@@ -26,7 +26,6 @@ export const Navbar = ({ toggleTheme }) => {
         <LogoBrand />
 
         <NavLinks>
-          <Link to="/Vantagens">Vantagens</Link>
           <Link to="/Empresas">Para Empresas</Link>
           <Link to="/Contato">Contate-nos</Link>
         </NavLinks>

@@ -9,7 +9,7 @@ export const CadastroContent = styled.div`
   gap: 2.5rem;
 
   width: 100%;
-  min-height: 90vh;
+  min-height: calc(100vh - 75px);
 `;
 
 export const CadastroForm = styled.form`
@@ -70,6 +70,12 @@ export const CadastroActions = styled.div`
   & a {
     color: ${({ theme }) => theme.colors.secondary};
   }
+`;
+
+export const LoginButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const CadastroGoogle = styled.button`
