@@ -5,7 +5,6 @@ export const CadastroContainer = styled.section``;
 export const CadastroContent = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 2.5rem;
 
   width: 100%;
@@ -36,6 +35,7 @@ export const CadastroImage = styled.div`
   justify-content: center;
   align-items: center;
 
+  height: calc(100vh - 75px);
   width: 100%;
 
   & img {

@@ -8,6 +8,7 @@ export const HomeHero = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 
   height: 65vh;
 
@@ -40,12 +41,22 @@ export const HomeContent = styled.section`
 `;
 
 export const HomeContentTitle = styled.h1`
-  ${({ text }) => {
-    if (text === "center") {
-      return css`
+${({ text }) => {
+  if (text === "center") {
+    return css`
         text-align: center;
         max-width: 500px;
-        margin: 2rem auto;
+        margin: 2rem auto 0 auto;
+
+        &::after {
+          content: "";
+          display: block;
+          height: 10rem;
+          width: 2px;
+          background-color: ${({theme}) => theme.colors.secondary};
+          margin: 2rem auto -6rem auto;
+          border-radius: 10px;
+        }
       `;
     } else {
       return css`
@@ -58,7 +69,6 @@ export const HomeContentTitle = styled.h1`
 
 export const HomeDescs = styled.div`
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
 
@@ -74,7 +84,7 @@ export const HomeDesc = styled.div`
   & img {
     justify-content: end;
     max-width: 75px;
-    ${({ margin }) => "margin-" + margin + ": auto;"}
+    margin: 0 auto 1rem auto;
   }
 `;
 
@@ -89,10 +99,10 @@ export const HomeCards = styled.div`
     content: "";
     background-color: ${({ theme }) => theme.colors.secondary};
     width: 230px;
-    height: 10px;
+    height: 5px;
     margin: 6rem auto;
-
     display: block;
+    border-radius: 10px;
   }
 `;
 

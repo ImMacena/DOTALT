@@ -5,7 +5,6 @@ export const StyledPendentesCard = styled.li`
   flex-direction: column;
 
   padding: 0.5rem 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.text};
   border-radius: 5px;
   box-shadow: 0px 0px 3px #555;
 `;

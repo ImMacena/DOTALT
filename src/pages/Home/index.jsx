@@ -46,7 +46,7 @@ export const Home = () => {
           </HomeContentTitle>
 
           <HomeDescs>
-            <HomeDesc side={"start"} margin={"right"}>
+            <HomeDesc side={"center"} >
               <img src={BarChartFill} alt="Imagem de gráfico de barras" />
               <h2>Acompanhe o desempenho acadêmico</h2>
               <p>
@@ -54,7 +54,7 @@ export const Home = () => {
                 atividades.
               </p>
             </HomeDesc>
-            <HomeDesc side={"end"} margin={"left"}>
+            <HomeDesc side={"center"} >
               <img src={BookFill} alt="Imagem de livro" />
               <h2>Mais praticidade e disponibilidade</h2>
               <p>

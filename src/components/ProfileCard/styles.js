@@ -8,7 +8,6 @@ export const StyledProfileCard = styled.div`
 
   background-color: ${({ theme }) => theme.colors.background};
   max-width: 50%;
-  border: 1px solid ${({ theme }) => theme.colors.text};
   border-radius: 5px;
   padding: 1.5rem;
   box-shadow: 0px 0px 3px #555;

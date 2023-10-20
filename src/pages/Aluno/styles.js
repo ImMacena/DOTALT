@@ -51,19 +51,20 @@ export const Desempenho = styled.div`
 
 export const DesempenhoResumo = styled.div`
   flex: 1;
-  
+
   & > div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    
+
+    box-shadow: 0px 0px 3px #555;
     height: 220px;
     text-align: center;
     font-weight: bold;
     padding: 0 1.5rem;
-    border: 1px solid ${({theme}) => theme.colors.text};
+    border: 1px solid ${({ theme }) => theme.colors.text};
     border-radius: 5px;
 
     h2 {
@@ -95,7 +96,7 @@ export const DesempenhoArmazenamento = styled.div`
   flex: 1;
 
   & span {
-    color: ${({theme}) => theme.colors.text} !important;
+    color: ${({ theme }) => theme.colors.text} !important;
     font-size: 1rem !important;
     font-weight: 700 !important;
   }
@@ -110,14 +111,15 @@ export const DesempenhoArmazenamento = styled.div`
   & h2::before {
     margin-right: 0;
   }
-  
+
   & > div {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
+    box-shadow: 0px 0px 3px #555;
     height: 220px;
-    border: 1px solid ${({theme}) => theme.colors.text};
+    border: 1px solid ${({ theme }) => theme.colors.text};
     border-radius: 5px;
   }
 `;
