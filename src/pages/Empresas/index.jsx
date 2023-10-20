@@ -8,17 +8,40 @@ export const Empresas = () => {
     {
       size: "P",
       price: "81,00",
-      list: ["Vantagem 1", "Vantagem 2"],
+      storage: "150GB",
+      capacity: "300",
+      list: [
+        "Enviar e salvar materiais de aula.",
+        "Atribuir e corrigir atividades.",
+        "Acompanhar o desempenho dos alunos.",
+        "Chat de interação entre professores e alunos.",
+      ],
     },
     {
       size: "M",
       price: "162,00",
-      list: ["Vantagem 1", "Vantagem 2", "Vantagem 3", "Vantagem 4", "Vantagem 5"],
+      storage: "300GB",
+      capacity: "600",
+      list: [
+        "Enviar e salvar materiais de aula.",
+        "Atribuir e corrigir atividades.",
+        "Acompanhar o desempenho dos alunos.",
+        "Chat de interação entre professores e alunos.",
+      ],
     },
     {
       size: "G",
       price: "243,00",
-      list: ["Vantagem 1", "Vantagem 2", "Vantagem 3"],
+      storage: "450GB",
+      capacity: "900",
+      list: [
+        "Enviar e salvar materiais de aula.",
+        "Atribuir e corrigir atividades.",
+        "Acompanhar o desempenho dos alunos.",
+        "Chat de interação entre professores e alunos.",
+        "Prioridade no atendimento.",
+        "Suporte personalizado."
+      ],
     },
   ];
 

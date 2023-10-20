@@ -22,7 +22,7 @@ export const StyledPlanosCard = styled.li`
   & h3 {
     font-size: 1.75rem;
   }
-  
+
   & h3::after {
     content: "";
     display: block;
@@ -30,11 +30,12 @@ export const StyledPlanosCard = styled.li`
     width: 100%;
     background-color: ${({ theme }) => theme.colors.text};
     border-radius: 50%;
+    margin-top: 0.5rem;
   }
-  
+
   & h3 span {
     font-size: 1rem;
-    color: ${({theme}) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.secondary};
   }
 `;
 
@@ -45,5 +46,25 @@ export const VantagensList = styled.ul`
   & li {
     text-align: start;
     padding: 0.5rem 0;
+    font-weight: 600;
+    font-family: "Lato";
+
+    display: flex;
+    justify-content: row;
+
+    & svg {
+      flex: 1;
+      max-width: 25px;
+      color: ${({ theme }) => theme.colors.primary};
+      margin-right: 0.5rem;
+    }
+
+    & p {
+      flex: 1;
+    }
+
+    & span {
+      color: ${({ theme }) => theme.colors.danger};
+    }
   }
 `;

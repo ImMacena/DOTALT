@@ -17,6 +17,7 @@ export const ListaPlanos = styled.ul`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 1rem;
 
   width: 100%;
   list-style: none;
