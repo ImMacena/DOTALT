@@ -57,7 +57,7 @@ export const Aluno = () => {
     colors: ["#25FF92", "#FC3565"],
   };
 
-  const series = [750, 250];
+  const series = [300, 200];
 
   return (
     <AlunoContainer>

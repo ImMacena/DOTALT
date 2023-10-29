@@ -12,6 +12,9 @@ import {
   Contato,
   Cadastro,
   Aluno,
+  Atividades,
+  Turmas,
+  Mochila,
 } from "./pages";
 
 import { MenuBar } from "./components/MenuBar";
@@ -52,6 +55,39 @@ const router = createBrowserRouter([
             <>
               <MenuBar />
               <Aluno />
+            </>
+          </RequireAuth>
+        ),
+      },
+      {
+        path: "/Atividades",
+        element: (
+          <RequireAuth>
+            <>
+              <MenuBar />
+              <Atividades />
+            </>
+          </RequireAuth>
+        ),
+      },
+      {
+        path: "/Mochila",
+        element: (
+          <RequireAuth>
+            <>
+              <MenuBar />
+              <Mochila />
+            </>
+          </RequireAuth>
+        ),
+      },
+      {
+        path: "/Turmas",
+        element: (
+          <RequireAuth>
+            <>
+              <MenuBar />
+              <Turmas />
             </>
           </RequireAuth>
         ),

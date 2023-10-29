@@ -31,6 +31,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .App {
-    margin-top: 75px;
+    margin-top: 65px;
   }
 `;

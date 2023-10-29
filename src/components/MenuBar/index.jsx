@@ -3,8 +3,12 @@ import {
   BsClipboard,
   BsFileEarmarkPlus,
   BsBook,
+  BsHouse,
 } from "react-icons/bs";
+
 import { PiBackpackLight } from "react-icons/pi";
+
+import { Link } from "react-router-dom";
 
 import { MenuList, StyledMenuBar } from "./styles";
 
@@ -13,24 +17,38 @@ export const MenuBar = () => {
     <StyledMenuBar>
       <MenuList>
         <li>
-          <div>
-            <h3>MATÉRIAS</h3>
-            <BsPeople size={35} />
-          </div>
+          <Link to="/Aluno">
+            <div>
+              <h3>PRINCIPAL</h3>
+              <BsHouse size={35} />
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link to="/Turmas">
+            <div>
+              <h3>TURMAS</h3>
+              <BsPeople size={35} />
+            </div>
+          </Link>
         </li>
 
         <li>
-          <div>
-            <h3>ATIVIDADES</h3>
-            <BsClipboard size={35} />
-          </div>
+          <Link to="/Atividades">
+            <div>
+              <h3>ATIVIDADES</h3>
+              <BsClipboard size={35} />
+            </div>
+          </Link>
         </li>
 
         <li>
-          <div>
-            <h3>MOCHILA</h3>
-            <PiBackpackLight size={35} />
-          </div>
+          <Link to="/Mochila">
+            <div>
+              <h3>MOCHILA</h3>
+              <PiBackpackLight size={35} />
+            </div>
+          </Link>
         </li>
 
         <li>

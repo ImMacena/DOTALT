@@ -7,7 +7,7 @@ export const Brand = styled.div`
   color: ${({ theme }) => theme.colors.text};
 
   & img {
-    width: 60px;
+    width: 50px;
   }
 
   & h1 {

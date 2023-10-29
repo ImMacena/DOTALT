@@ -11,7 +11,7 @@ export const Nav = styled.nav`
 
   z-index: 999;
   width: 100vw;
-  height: 75px;
+  height: 65px;
   text-transform: uppercase;
   background-color: ${({ theme }) => theme.colors.background};
   border-bottom: 3px solid ${({ theme }) => theme.colors.primary};

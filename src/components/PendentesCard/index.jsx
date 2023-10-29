@@ -16,7 +16,7 @@ export const PendentesCard = ({
           {materia} | <span>{turma}</span>
         </p>
         <p>
-          Postagem: <span>{dtPostagem}</span> - Prazo: <span>{dtPrazo}</span>
+          Postado: <span>{dtPostagem}</span> - Prazo: <span>{dtPrazo}</span>
         </p>
       </PendentesInfo>
 

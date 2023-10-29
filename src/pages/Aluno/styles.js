@@ -57,7 +57,7 @@ export const DesempenhoResumo = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 
     box-shadow: 0px 0px 3px #555;
     height: 220px;
@@ -75,18 +75,24 @@ export const DesempenhoResumo = styled.div`
 `;
 
 export const AtivEntregues = styled.div`
+  flex: 1;
+
   & > h2 {
     color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 export const AtivPendentes = styled.div`
+  flex: 1;
+
   & > h2 {
     color: ${({ theme }) => theme.colors.secondary};
   }
 `;
 
 export const AtivNaoEntregues = styled.div`
+  flex: 1;
+
   & > h2 {
     color: ${({ theme }) => theme.colors.danger};
   }
