@@ -52,10 +52,12 @@ export const MenuBar = () => {
         </li>
 
         <li>
-          <div>
-            <h3>CONTEÚDO</h3>
-            <BsBook size={35} />
-          </div>
+          <Link to="/Conteudos">
+            <div>
+              <h3>CONTEÚDOS</h3>
+              <BsBook size={35} />
+            </div>
+          </Link>
         </li>
 
         <li>

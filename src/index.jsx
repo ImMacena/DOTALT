@@ -15,6 +15,7 @@ import {
   Atividades,
   Turmas,
   Mochila,
+  Conteudos,
 } from "./pages";
 
 import { MenuBar } from "./components/MenuBar";
@@ -55,6 +56,17 @@ const router = createBrowserRouter([
             <>
               <MenuBar />
               <Aluno />
+            </>
+          </RequireAuth>
+        ),
+      },
+      {
+        path: "/Conteudos",
+        element: (
+          <RequireAuth>
+            <>
+              <MenuBar />
+              <Conteudos />
             </>
           </RequireAuth>
         ),

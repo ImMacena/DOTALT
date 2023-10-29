@@ -7,3 +7,4 @@ export * from "./Cadastro";
 export * from "./Atividades";
 export * from "./Turmas";
 export * from "./Mochila";
+export * from "./Conteudos";
