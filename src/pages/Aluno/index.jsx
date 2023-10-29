@@ -61,7 +61,7 @@ export const Aluno = () => {
 
   return (
     <AlunoContainer>
-      <Container pleft={"false"}>
+      <Container>
         <GreetingFrase
           typeOfUser={userData.userType}
           institution={userData.instituicao}

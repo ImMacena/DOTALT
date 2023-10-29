@@ -57,10 +57,10 @@ export const GreetingFrase = ({ typeOfUser, institution }) => {
 
   return (
     <StyledGreeting>
-      <h2>
-        {greeting} {typeOfUser}! <span>Hoje é {dayOfWeek}.</span>
-      </h2>
-      <h2>Instituição: {institution}</h2>
+      <h3>
+        {greeting} {typeOfUser}! Hoje é <span>{dayOfWeek}</span>.
+      </h3>
+      <h3>Instituição: {institution}</h3>
     </StyledGreeting>
   );
 };

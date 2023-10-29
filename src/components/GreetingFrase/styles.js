@@ -9,6 +9,6 @@ export const StyledGreeting = styled.div`
   margin-bottom: 1rem;
 
   & span {
-    font-weight: 500;
+    border-bottom: 2px solid ${({theme}) => theme.colors.primary};
   }
 `;
