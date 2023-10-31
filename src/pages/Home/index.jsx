@@ -1,12 +1,17 @@
 import { Container } from "../../components/Container";
+import { ResourcesCards } from "../../components/ResourcesCards";
+import { HomeCard } from "../../components/HomeCard";
+import { ActionBtn } from "../../components/ActionBtn";
 
 import {
+  HomeBannerTitle,
   HomeCards,
   HomeContent,
   HomeContentTitle,
   HomeDesc,
   HomeDescs,
   HomeHero,
+  HomePhrase,
   HomeTitle,
   Triangle,
 } from "./styles";
@@ -19,10 +24,8 @@ import triangleSecondary from "../../assets/triangleSecondary.png";
 import { PiBackpackLight } from "react-icons/pi";
 import { BsClipboard, BsFileEarmarkPlus, BsPeople } from "react-icons/bs";
 
-import { HomeCard } from "../../components/HomeCard";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
-import { ResourcesCards } from "../../components/ResourcesCards";
 
 export const Home = () => {
   const { colors } = useContext(ThemeContext);
@@ -42,11 +45,12 @@ export const Home = () => {
       <HomeContent>
         <Container>
           <HomeContentTitle text={"center"}>
-            Combine suas aulas com tecnologia e alavanque o conhecimento!
+            Combine suas aulas presenciais com tecnologia e alavanque o
+            conhecimento!
           </HomeContentTitle>
 
           <HomeDescs>
-            <HomeDesc side={"center"} >
+            <HomeDesc side={"center"}>
               <img src={BarChartFill} alt="Imagem de gráfico de barras" />
               <h2>Acompanhe o desempenho acadêmico</h2>
               <p>
@@ -54,7 +58,8 @@ export const Home = () => {
                 atividades.
               </p>
             </HomeDesc>
-            <HomeDesc side={"center"} >
+
+            <HomeDesc side={"center"}>
               <img src={BookFill} alt="Imagem de livro" />
               <h2>Mais praticidade e disponibilidade</h2>
               <p>
@@ -64,6 +69,41 @@ export const Home = () => {
             </HomeDesc>
           </HomeDescs>
 
+          <HomeBannerTitle>
+            <div></div>
+            <div>
+              <h2>
+                Convide sua instituição para adotar a plataforma no sistema de
+                ensino!
+              </h2>
+              <p>
+                As aulas presenciais são mais interessantes com um sistema
+                digital que oferece praticidade.
+              </p>
+              <p>
+                Com a nossa plataforma, concilie suas aulas
+                <span> presenciais</span> com as vantagens de um sistema{" "}
+                <span>online</span>.
+              </p>
+
+              <ActionBtn fill={"fill"} color={"secondary"}>
+                Quero participar!
+              </ActionBtn>
+            </div>
+          </HomeBannerTitle>
+        </Container>
+
+        <HomePhrase>
+          <Container>
+            <h2>Seja do tamanho dos seus sonhos.</h2>
+            <p><span>#</span>DOTALT</p>
+          </Container>
+        </HomePhrase>
+
+        <Container>
+          <HomeContentTitle text={"start"}>
+            Alguns dos recursos
+          </HomeContentTitle>
           <HomeCards>
             <HomeCard
               title={"Salve seus materiais"}
@@ -76,21 +116,22 @@ export const Home = () => {
               title={"Atribua e faça atividades"}
               icon={<BsClipboard color={colors.primary} size={65} />}
             >
-              Tenha o controle de quais atividades foram concluídas.
+              Tenha o controle de quais e quantas atividades foram feitas ou
+              estão pendentes.
             </HomeCard>
 
             <HomeCard
               title={"Expanda seu conhecimento"}
               icon={<BsFileEarmarkPlus color={colors.primary} size={65} />}
             >
-              Acesse conteúdos complementares nos assuntos que gosta.
+              Acesse conteúdos complementares e se aprofunde no que gosta.
             </HomeCard>
 
             <HomeCard
               title={"Controle cada matéria"}
               icon={<BsPeople color={colors.primary} size={65} />}
             >
-              Veja anúncios e mensagens dos seus professores.
+              Veja avisos dos seus professores, e acesse o chat em tempo real.
             </HomeCard>
           </HomeCards>
 
