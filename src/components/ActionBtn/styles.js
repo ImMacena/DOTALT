@@ -13,11 +13,12 @@ export const StyledButton = styled.div`
   font-family: "Exo 2";
   color: ${({ theme }) => theme.colors.text};
   border-radius: 5px;
-
-  cursor: pointer;
-
   border: 3px solid ${({ theme, color }) => theme.colors[color]};
-
   background: ${({ fill, theme, color }) =>
     fill === "fill" ? theme.colors[color] : "none"};
+
+  &:hover {
+    cursor: pointer;
+    filter: saturate(1.25);
+  }
 `;

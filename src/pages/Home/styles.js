@@ -57,7 +57,7 @@ export const HomeContentTitle = styled.h1`
           display: block;
           height: 10rem;
           width: 2px;
-          background-color: ${({ theme }) => theme.colors.secondary};
+          background-color: #555;
           margin: 2rem auto -8rem auto;
           border-radius: 10px;
         }
@@ -79,8 +79,8 @@ export const HomeBannerTitle = styled.div`
   width: 100%;
   margin: 5rem 0;
   padding: 2rem 0;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
-  border-top: 2px solid ${({ theme }) => theme.colors.secondary};
+  border-bottom: 2px solid #555;
+  border-top: 2px solid #555;
 
   & > div {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25)),
@@ -110,9 +110,9 @@ export const HomeBannerTitle = styled.div`
 
   & p {
     font-size: 1rem;
-    padding: 1rem 0;
+    padding: 1rem 0.5rem;
     color: ${({ theme }) => theme.colors.text};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
     border-radius: 10px;
   }
 

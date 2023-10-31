@@ -17,7 +17,7 @@ export const StyledResourcesCard = styled.div`
     url(${ResourceCardImgAluno});
 
   &:last-child {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
+    background: linear-gradient(#0000, rgba(0, 0, 0, 0.2)),
       url(${ResourceCardImgProf});
   }
 

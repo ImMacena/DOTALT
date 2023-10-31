@@ -3,6 +3,8 @@ import { ResourcesCards } from "../../components/ResourcesCards";
 import { HomeCard } from "../../components/HomeCard";
 import { ActionBtn } from "../../components/ActionBtn";
 
+import scrollReveal from "scrollreveal";
+
 import {
   HomeBannerTitle,
   HomeCards,
@@ -24,17 +26,76 @@ import triangleSecondary from "../../assets/triangleSecondary.png";
 import { PiBackpackLight } from "react-icons/pi";
 import { BsClipboard, BsFileEarmarkPlus, BsPeople } from "react-icons/bs";
 
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "styled-components";
 
 export const Home = () => {
   const { colors } = useContext(ThemeContext);
 
+  const homeTitle = useRef();
+  const homeDescs = useRef();
+  const bannerP1 = useRef();
+  const bannerP2 = useRef();
+  const homePhrase = useRef();
+  const homeSubtitle = useRef();
+  const homeCards = useRef();
+
+  useEffect(() => {
+    const config = {
+      reset: true,
+      delay: 200,
+      distance: "60px",
+    };
+
+    const configLeft = {
+      ...config,
+      origin: "left",
+    };
+
+    const configBottom = {
+      ...config,
+      origin: "bottom",
+    };
+
+    const configRight = {
+      ...config,
+      origin: "right",
+    };
+
+    if (homeTitle.current) {
+      scrollReveal().reveal(homeTitle.current, configLeft);
+    }
+
+    if (homeDescs.current) {
+      scrollReveal().reveal(homeDescs.current, configBottom);
+    }
+
+    if (bannerP1.current) {
+      scrollReveal().reveal(bannerP1.current, configBottom);
+    }
+
+    if (bannerP2.current) {
+      scrollReveal().reveal(bannerP2.current, configBottom);
+    }
+
+    if (homePhrase.current) {
+      scrollReveal().reveal(homePhrase.current, configLeft);
+    }
+
+    if (homeSubtitle.current) {
+      scrollReveal().reveal(homeSubtitle.current, configRight);
+    }
+
+    if (homeCards.current) {
+      scrollReveal().reveal(homeCards.current, configBottom);
+    }
+  }, []);
+
   return (
     <>
       <HomeHero>
         <Container>
-          <HomeTitle>
+          <HomeTitle ref={homeTitle}>
             <h1>DOTALT</h1>
             <h2>Docência Tecnológica Alternativa</h2>
             <p>Mude o mundo através da educação</p>
@@ -49,7 +110,7 @@ export const Home = () => {
             conhecimento!
           </HomeContentTitle>
 
-          <HomeDescs>
+          <HomeDescs ref={homeDescs}>
             <HomeDesc side={"center"}>
               <img src={BarChartFill} alt="Imagem de gráfico de barras" />
               <h2>Acompanhe o desempenho acadêmico</h2>
@@ -76,11 +137,11 @@ export const Home = () => {
                 Convide sua instituição para adotar a plataforma no sistema de
                 ensino!
               </h2>
-              <p>
+              <p ref={bannerP1}>
                 As aulas presenciais são mais interessantes com um sistema
                 digital que oferece praticidade.
               </p>
-              <p>
+              <p ref={bannerP2}>
                 Com a nossa plataforma, concilie suas aulas
                 <span> presenciais</span> com as vantagens de um sistema{" "}
                 <span>online</span>.
@@ -95,8 +156,10 @@ export const Home = () => {
 
         <HomePhrase>
           <Container>
-            <h2>Seja do tamanho dos seus sonhos.</h2>
-            <p><span>#</span>DOTALT</p>
+            <h2 ref={homePhrase}>Seja do tamanho dos seus sonhos.</h2>
+            <p ref={homeSubtitle}>
+              <span>#</span>DOTALT
+            </p>
           </Container>
         </HomePhrase>
 
@@ -104,7 +167,7 @@ export const Home = () => {
           <HomeContentTitle text={"start"}>
             Alguns dos recursos
           </HomeContentTitle>
-          <HomeCards>
+          <HomeCards ref={homeCards}>
             <HomeCard
               title={"Salve seus materiais"}
               icon={<PiBackpackLight color={colors.primary} size={75} />}
