@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { AuthContext } from "./AuthContext";
 
@@ -9,22 +9,34 @@ export const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    const hasUser = localStorage.getItem("user");
+
+    const userStorage = JSON.parse(hasUser);
+
+    if (hasUser !== undefined) setUser(userStorage);
+  }, []);
+
   const signin = async (email, password) => {
     const data = await api.signin(email, password);
 
-    if (data.user && data.token) {
-      setUser(data.user);
+    if (data) {
+      setUser(data);
+
+      localStorage.setItem("user", JSON.stringify(data));
 
       return true;
     }
 
     return false;
-  }
+  };
 
   const signout = async () => {
     await api.logout();
     setUser(null);
-  }
+
+    localStorage.removeItem("user");
+  };
 
   return (
     <AuthContext.Provider value={{ user, signin, signout }}>

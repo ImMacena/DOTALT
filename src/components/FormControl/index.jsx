@@ -4,6 +4,8 @@ export const FormControl = ({
   id,
   type,
   label,
+  value,
+  onChange,
   required = false,
 }) => {
   return (
@@ -16,6 +18,8 @@ export const FormControl = ({
         type={type}
         id={id}
         required={required  ? true : false}
+        value={value}
+        onChange={onChange}
       />
     </StyledFormInput>
   );

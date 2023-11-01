@@ -22,31 +22,35 @@ import {
 
 import ImgLoginLight from "../../assets/LoginImgLight.png";
 import ImgLoginDark from "../../assets/LoginImgDark.png";
-// import { AuthContext } from "../../contexts/Auth/AuthContext";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 
 export const Login = () => {
   const [imgLogin, setImgLogin] = useState(ImgLoginLight);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const auth = useContext(AuthContext);
+  const auth = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const handleSignin = useCallback(() => {
-    const signin = async () => {
+    const signin = async (email, password) => {
       if (email && password) {
-        // const isLogged = await auth.signin(email, password);
-        const isLogged = true;
+        try {
+          const response = await auth.signin(email, password);
 
-        if (isLogged) {
-          return navigate("/Aluno");
+          if (response) {
+            return navigate("/Aluno");
+          }
+          
+        } catch (error) {
+          return console.log(error.message);
         }
       }
     };
 
     signin(email, password);
-  }, [navigate, email, password]);
+  }, [navigate, email, password, auth]);
 
   const { title } = useContext(ThemeContext);
 
