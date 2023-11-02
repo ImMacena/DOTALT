@@ -42,7 +42,6 @@ export const Login = () => {
           if (response) {
             return navigate("/Aluno");
           }
-          
         } catch (error) {
           return console.log(error.message);
         }

@@ -1,5 +1,7 @@
 import { useCallback, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 
 import { ThemeContext } from "styled-components";
 
@@ -14,21 +16,34 @@ import { ActionButtons, Nav, NavLinks, StyledSwitch } from "./styles";
 export const Navbar = ({ toggleTheme }) => {
   const { title, colors } = useContext(ThemeContext);
 
+  const { signout } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handleLogar = useCallback(() => navigate("/Login"), [navigate]);
 
   const handleCadastrar = useCallback(() => navigate("/Cadastro"), [navigate]);
 
+  const handleSair = useCallback(() => {
+    signout();
+    navigate("/");
+  }, [signout, navigate]);
+
+  const { pathname } = useLocation();
+
   return (
     <Nav>
       <Container>
         <LogoBrand />
 
-        <NavLinks>
-          <Link to="/Empresas">Para Empresas</Link>
-          <Link to="/Contato">Contate-nos</Link>
-        </NavLinks>
+        {(pathname === "/" ||
+          pathname === "/Contato" ||
+          pathname === "/Empresas") && (
+          <NavLinks>
+            <Link to="/Empresas">Para Empresas</Link>
+            <Link to="/Contato">Contate-nos</Link>
+          </NavLinks>
+        )}
 
         <ActionButtons>
           {title === "dark" ? <BsSunFill /> : <BsFillMoonFill />}
@@ -47,13 +62,29 @@ export const Navbar = ({ toggleTheme }) => {
             alt="Trocar tema"
           />
 
-          <ActionBtn color={"primary"} action={handleLogar}>
-            Logar
-          </ActionBtn>
+          {pathname === "/" ||
+          pathname === "/Contato" ||
+          pathname === "/Empresas" ||
+          pathname === "/Login" ||
+          pathname === "/Cadastro" ? (
+            <>
+              <ActionBtn color={"primary"} action={handleLogar}>
+                Logar
+              </ActionBtn>
 
-          <ActionBtn fill={"fill"} color={"primary"} action={handleCadastrar}>
-            Cadastrar
-          </ActionBtn>
+              <ActionBtn
+                fill={"fill"}
+                color={"primary"}
+                action={handleCadastrar}
+              >
+                Cadastrar
+              </ActionBtn>
+            </>
+          ) : (
+            <ActionBtn color={"danger"} action={handleSair}>
+              Sair
+            </ActionBtn>
+          )}
         </ActionButtons>
       </Container>
     </Nav>

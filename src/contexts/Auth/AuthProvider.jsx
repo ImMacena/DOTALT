@@ -31,8 +31,7 @@ export const AuthProvider = ({ children }) => {
     return false;
   };
 
-  const signout = async () => {
-    await api.logout();
+  const signout = () => {
     setUser(null);
 
     localStorage.removeItem("user");
