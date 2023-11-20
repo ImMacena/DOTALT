@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AtividadesContainer = styled.section`
-  min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 60px);
 `;
 
 export const AtividadesNav = styled.nav`

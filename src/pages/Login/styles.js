@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const LoginContainer = styled.section``;
 
@@ -9,7 +9,7 @@ export const LoginContent = styled.div`
   gap: 2.5rem;
 
   width: 100%;
-  min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 65px);
 `;
 
 export const LoginForm = styled.form`
@@ -28,6 +28,38 @@ export const LoginForm = styled.form`
   & button {
     margin: 1rem auto;
   }
+`;
+
+export const ChooseUser = styled.div`
+  width: 100%;
+
+  & > ul {
+    display: flex;
+    flex-direction: row;
+
+    list-style: none;
+    width: 100%;
+  }
+`;
+
+export const ChooseUserOpt = styled.div`
+  flex: 1;
+
+  font-weight: bold;
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+
+  ${({selected, theme}) => {
+    if (selected) {
+      return css`
+        border: 1px solid ${theme.colors.primary};
+        box-shadow: 0px 0px 3px #555;
+      `;
+    }
+  }}
 `;
 
 export const LoginImage = styled.div`

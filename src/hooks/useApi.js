@@ -5,12 +5,13 @@ const api = axios.create({
 });
 
 export const useApi = () => ({
-  signin: async (email, password) => {
+  signin: async (email, password, userType) => {
     const response = await api.post(
       "/auth",
-      JSON.stringify({ email, password }),
+      JSON.stringify({ email, password, userType }),
       { headers: { "Content-type": "application/json" } }
     );
+
     return response.data;
   },
 
@@ -18,4 +19,26 @@ export const useApi = () => ({
     const response = await api.get("/auth");
     return response.data;
   },
+
+  signup: async (username, email, password, userType, accessCode) => {
+    const response = await api.post(
+      "/user",
+      JSON.stringify({
+        name: username,
+        email: email,
+        password: password,
+        userType: userType,
+        accessCode: accessCode,
+      }),
+      { headers: { "Content-Type": "application/json" } }
+    );
+
+    return response.data;
+  },
+
+  getFiles: async(userID) => {
+    const response = await api.get(`/file/${userID}`)
+
+    return response.data;
+  }
 });

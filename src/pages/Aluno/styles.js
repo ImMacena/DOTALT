@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import guilherme from "../../assets/guilherme.png";
+
 export const AlunoContainer = styled.section`
   padding-bottom: 8rem;
 `;
@@ -7,9 +9,10 @@ export const AlunoContainer = styled.section`
 export const AlunoQuickAccess = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 2rem;
-
+  
+  width: 100%;
   padding-bottom: 2rem;
 `;
 
@@ -129,3 +132,41 @@ export const DesempenhoArmazenamento = styled.div`
     border-radius: 5px;
   }
 `;
+
+
+export const StyledProfileCard = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  
+  max-width: 60%;
+  /* border: 1px solid red; */
+  padding: 1rem;
+`;
+
+export const ProfileIcon = styled.div`
+  width: 10rem !important;
+  height: 10rem;
+  border-radius: 100%;
+  border: 3px solid ${({theme}) => theme.colors.text};
+  background-image: url(${guilherme});
+  background-position: center;
+  background-size: cover;
+`;
+
+export const ProfileDesc = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+
+  & p {
+    color: ${({theme}) => theme.colors.secondary};
+  }
+
+  & > div {
+    margin: 0;
+  }
+`;
+

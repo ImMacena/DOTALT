@@ -1,5 +1,7 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 
+import { toast } from "react-toastify";
+
 import { useNavigate } from "react-router-dom";
 
 import { ThemeContext } from "styled-components";
@@ -18,6 +20,8 @@ import {
   LoginActions,
   LoginGoogle,
   LoginButtons,
+  ChooseUser,
+  ChooseUserOpt,
 } from "./styles";
 
 import ImgLoginLight from "../../assets/LoginImgLight.png";
@@ -28,28 +32,63 @@ export const Login = () => {
   const [imgLogin, setImgLogin] = useState(ImgLoginLight);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [btnDisabled, setBtnDisabled] = useState(true);
+
+  const [userType, setUserType] = useState("Student");
+  const [userStudent, setUserStudent] = useState("true");
+  const [userTeacher, setUserTeacher] = useState("");
+  const [userInstitution, setUserInstitution] = useState("");
 
   const auth = useContext(AuthContext);
 
   const navigate = useNavigate();
 
+  const handleUser = useCallback(
+    (user) => {
+      if (user === "Student") {
+        setUserType("Student");
+        setUserStudent("true");
+        setUserTeacher("");
+        setUserInstitution("");
+      }
+
+      if (user === "Teacher") {
+        setUserType("Teacher");
+        setUserStudent("");
+        setUserTeacher("true");
+        setUserInstitution("");
+      }
+
+      if (user === "Institution") {
+        setUserType("Institution");
+        setUserStudent("");
+        setUserTeacher("");
+        setUserInstitution("true");
+      }
+    },
+    [setUserType, setUserStudent, setUserTeacher, setUserInstitution]
+  );
+
   const handleSignin = useCallback(() => {
-    const signin = async (email, password) => {
+    const signin = async (email, password, userType) => {
       if (email && password) {
         try {
-          const response = await auth.signin(email, password);
+          const response = await auth.signin(email, password, userType);
 
           if (response) {
             return navigate("/Aluno");
           }
         } catch (error) {
-          return console.log(error.message);
+          return toast.error(error.response.data.message, {
+            position: "top-right",
+            autoClose: 2000,
+          });
         }
       }
     };
 
-    signin(email, password);
-  }, [navigate, email, password, auth]);
+    signin(email, password, userType);
+  }, [navigate, email, password, userType, auth]);
 
   const { title } = useContext(ThemeContext);
 
@@ -57,12 +96,43 @@ export const Login = () => {
     title === "light" ? setImgLogin(ImgLoginLight) : setImgLogin(ImgLoginDark);
   }, [title]);
 
+  useEffect(() => {
+    if (email.length > 0 && password.length > 0) {
+      setBtnDisabled(false);
+    } else {
+      setBtnDisabled(true);
+    }
+  }, [setBtnDisabled, email, password]);
+
   return (
     <LoginContainer>
       <Container>
         <LoginContent>
           <LoginForm>
             <h1>Acesse sua conta na DOTALT</h1>
+            
+            <ChooseUser>
+              <ul>
+                <ChooseUserOpt
+                  selected={userStudent}
+                  onClick={() => handleUser("Student")}
+                >
+                  Aluno
+                </ChooseUserOpt>
+                <ChooseUserOpt
+                  selected={userTeacher}
+                  onClick={() => handleUser("Teacher")}
+                >
+                  Professor
+                </ChooseUserOpt>
+                <ChooseUserOpt
+                  selected={userInstitution}
+                  onClick={() => handleUser("Institution")}
+                >
+                  Instituição
+                </ChooseUserOpt>
+              </ul>
+            </ChooseUser>
 
             <FormControl
               id="loginEmail"
@@ -99,7 +169,12 @@ export const Login = () => {
             </LoginActions>
 
             <LoginButtons>
-              <ActionBtn color="primary" type="submit" action={handleSignin}>
+              <ActionBtn
+                color="primary"
+                disabled={btnDisabled}
+                type="submit"
+                action={handleSignin}
+              >
                 Entrar
               </ActionBtn>
 

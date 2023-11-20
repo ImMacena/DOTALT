@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledButton = styled.div`
   text-transform: uppercase;
@@ -17,8 +17,27 @@ export const StyledButton = styled.div`
   background: ${({ fill, theme, color }) =>
     fill === "fill" ? theme.colors[color] : "none"};
 
+  ${({ disabled }) => {
+    if (disabled === true) {
+      return css`
+        opacity: 0.5;
+      `;
+    }
+  }}
+
   &:hover {
-    cursor: pointer;
+    ${({ disabled }) => {
+      if (disabled === true) {
+        return css`
+          cursor: default;
+        `;
+      } else {
+        return css`
+          cursor: pointer;
+        `;
+      }
+    }}
+
     filter: saturate(1.25);
   }
 `;

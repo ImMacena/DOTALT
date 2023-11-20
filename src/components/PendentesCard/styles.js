@@ -15,7 +15,7 @@ export const PendentesInfo = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.text};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
   padding-bottom: 0.5rem;
 
   & p {

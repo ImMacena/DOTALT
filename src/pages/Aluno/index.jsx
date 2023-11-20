@@ -1,8 +1,11 @@
+import { useContext, useEffect, useState } from "react";
+
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 import ApexCharts from "react-apexcharts";
 
+import { ActionBtn } from "../../components/ActionBtn";
 import { Container } from "../../components/Container";
 import { GreetingFrase } from "../../components/GreetingFrase";
-import { ProfileCard } from "../../components/ProfileCard";
 import { ActionCards } from "../../components/ActionCards";
 import { PendentesCard } from "../../components/PendentesCard";
 
@@ -17,6 +20,9 @@ import {
   DesempenhoResumo,
   Pendentes,
   PendentesList,
+  ProfileDesc,
+  ProfileIcon,
+  StyledProfileCard,
   Title,
 } from "./styles";
 
@@ -59,6 +65,16 @@ export const Aluno = () => {
 
   const series = [300, 200];
 
+  const [userDesc, setUserDesc] = useState("");
+
+  const auth = useContext(AuthContext);
+
+  useEffect(() => {
+    if (auth.user?.userType === "Student") setUserDesc("Aluno");
+    if (auth.user?.userType === "Teacher") setUserDesc("Professor");
+    if (auth.user?.userType === "Institution") setUserDesc("Administrador");
+  }, [auth]);
+
   return (
     <AlunoContainer>
       <Container>
@@ -68,29 +84,19 @@ export const Aluno = () => {
         />
 
         <AlunoQuickAccess>
-          <ProfileCard typeOfUser={userData.userType} />
+          <StyledProfileCard>
+            <ProfileIcon>
+            </ProfileIcon>
+
+            <ProfileDesc>
+              <h2>{auth.user?.name}</h2>
+              <p>{userDesc}</p>
+              <ActionBtn color={"secondary"}>Visualizar Perfil</ActionBtn>
+            </ProfileDesc>
+          </StyledProfileCard>
 
           <ActionCards typeOfUser={userData.userType} />
         </AlunoQuickAccess>
-
-        <Pendentes>
-          <Title>ATIVIDADES PENDENTES</Title>
-
-          <PendentesList>
-            {AtividadesPendentes.map((data, key) => {
-              return (
-                <PendentesCard
-                  turma={data.turma}
-                  materia={data.materia}
-                  dtPostagem={data.dtPostagem}
-                  dtPrazo={data.dtPrazo}
-                  atividade={data.atividade}
-                  key={key}
-                />
-              );
-            })}
-          </PendentesList>
-        </Pendentes>
 
         <Desempenho>
           <DesempenhoResumo>
@@ -127,6 +133,25 @@ export const Aluno = () => {
             </div>
           </DesempenhoArmazenamento>
         </Desempenho>
+
+        <Pendentes>
+          <Title>ATIVIDADES PENDENTES</Title>
+
+          <PendentesList>
+            {AtividadesPendentes.map((data, key) => {
+              return (
+                <PendentesCard
+                  turma={data.turma}
+                  materia={data.materia}
+                  dtPostagem={data.dtPostagem}
+                  dtPrazo={data.dtPrazo}
+                  atividade={data.atividade}
+                  key={key}
+                />
+              );
+            })}
+          </PendentesList>
+        </Pendentes>
       </Container>
     </AlunoContainer>
   );

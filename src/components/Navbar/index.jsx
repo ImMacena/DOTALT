@@ -1,4 +1,4 @@
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/Auth/AuthContext";
@@ -11,18 +11,31 @@ import { Container } from "../Container";
 
 import { BsSunFill, BsFillMoonFill } from "react-icons/bs";
 
-import { ActionButtons, Nav, NavLinks, StyledSwitch } from "./styles";
+import {
+  ActionButtons,
+  Nav,
+  NavBarProfileImg,
+  NavBarProfileOptions,
+  NavLinks,
+  StyledSwitch,
+} from "./styles";
 
 export const Navbar = ({ toggleTheme }) => {
   const { title, colors } = useContext(ThemeContext);
 
-  const { signout } = useContext(AuthContext);
+  const { signout, user } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const handleLogar = useCallback(() => navigate("/Login"), [navigate]);
 
   const handleCadastrar = useCallback(() => navigate("/Cadastro"), [navigate]);
+
+  const [isOpen, setIsOpen] = useState("false");
+
+  const handleIsOpen = useCallback(() => {
+    isOpen === "true" ? setIsOpen("false") : setIsOpen("true");
+  }, [isOpen, setIsOpen]);
 
   const handleSair = useCallback(() => {
     signout();
@@ -62,11 +75,7 @@ export const Navbar = ({ toggleTheme }) => {
             alt="Trocar tema"
           />
 
-          {pathname === "/" ||
-          pathname === "/Contato" ||
-          pathname === "/Empresas" ||
-          pathname === "/Login" ||
-          pathname === "/Cadastro" ? (
+          {user === null ? (
             <>
               <ActionBtn color={"primary"} action={handleLogar}>
                 Logar
@@ -81,9 +90,29 @@ export const Navbar = ({ toggleTheme }) => {
               </ActionBtn>
             </>
           ) : (
-            <ActionBtn color={"danger"} action={handleSair}>
-              Sair
-            </ActionBtn>
+            <>
+              <NavBarProfileImg onClick={handleIsOpen}>
+                <NavBarProfileOptions isopen={isOpen}>
+                  {user?.userType === "Student" && user?.classes && (
+                    <li>
+                      <Link to="/Aluno">Turma: {user?.classes[0].name}</Link>
+                    </li>
+                  )}
+
+                  {user?.userType === "Teacher" && (
+                    <li>
+                      <Link to="/Professor">Principal</Link>
+                    </li>
+                  )}
+
+                  <li onClick={handleSair}>Sair</li>
+                </NavBarProfileOptions>
+              </NavBarProfileImg>
+
+              {/* <ActionBtn color={"danger"} action={handleSair}>
+                Sair
+              </ActionBtn> */}
+            </>
           )}
         </ActionButtons>
       </Container>

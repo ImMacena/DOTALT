@@ -9,6 +9,8 @@ import { light } from "./styles/themes/light";
 import { dark } from "./styles/themes/dark";
 import { GlobalStyle } from "./styles/global";
 
+import { ToastContainer } from "react-toastify";
+
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 
@@ -28,6 +30,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <GlobalStyle />
+        <ToastContainer />
         <Navbar toggleTheme={toggleTheme} />
         <Outlet />
         <Footer />

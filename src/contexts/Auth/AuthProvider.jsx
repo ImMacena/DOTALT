@@ -17,8 +17,8 @@ export const AuthProvider = ({ children }) => {
     if (hasUser !== undefined) setUser(userStorage);
   }, []);
 
-  const signin = async (email, password) => {
-    const data = await api.signin(email, password);
+  const signin = async (email, password, userType, accessCode) => {
+    const data = await api.signin(email, password, userType, accessCode);
 
     if (data) {
       setUser(data);
